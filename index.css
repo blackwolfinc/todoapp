@@ -1,0 +1,131 @@
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+html {
+ 
+    font-size: 26px;
+    color: #232323;
+  
+}
+
+body {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    margin: 100px;
+  background-color: white;
+
+}
+
+input{
+    background-color:#ffffff;
+    width: 100%;
+    padding: 10px;
+    line-height: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.781);
+    border-radius: 5px;
+    margin: 15px 8px;
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+}
+
+button {
+
+    padding: .6em 1.2em;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.container {
+    background-color: whitesmoke;
+    padding: 2rem;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+ul {
+    display: block;
+    margin: 15px 8px;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+li {
+    width: 100%;
+    margin: 20px;
+}
+
+li.item {
+    display: flex;
+    position: relative;
+    justify-content: left;
+}
+
+ .item2{
+   
+    display: flex;
+    justify-content: space-between;
+}
+
+li .btn {
+
+display: flex;
+justify-content: right;
+}
+
+li .btn2{
+margin: 2px 10px 2px 10px;
+
+}
+.btn3 {
+
+    margin: 0px 10px 0px 10px;
+
+}
+.btn-edit {
+    color: black;
+    cursor: pointer;
+}
+
+.btn-comp{
+    cursor: help;
+    color: darkgreen;
+}
+.btn-delete {
+    color:red;
+    cursor: grab;
+}
+.btn p {
+letter-spacing: 3px;
+}
+span.checked  {
+    color:darkgreen;
+    text-decoration: line-through;
+}
+
+.sort-todo {
+    display: flex;
+    justify-content: center;
+}

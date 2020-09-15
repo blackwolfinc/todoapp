@@ -2,213 +2,27 @@
 <html lang="en">
 
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadual rebahan</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<style>
-      * {
-            font-family: 'Roboto', sans-serif;
-            margin: 0px auto;
-      }
-
-      .inputtext {
-            width: 181px;
-            height: 39px;
-            margin-right: 10px;
-            box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
-                  -9px -9px 20px rgba(231, 229, 229, 0.753);
-            border: none;
-            border-radius: 2px;
-      }
-
-      .container {
-            max-width: 300px;
-            width: 1fr;
-            margin: 20px auto;
-            border-radius: 2%;
-            padding: 20px;
-            margin: 0 auto;
-            min-height: 600px;
-            background: #FFFFFF;
-            margin-top: 20px;
-            box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
-                  -9px -9px 20px rgba(255, 255, 255, 0.753);
-      }
-
-      .btn {
-            min-width: 83px;
-            min-height: 44px;
-            background-color: #FF6F6F;
-            font-size: 14px;
-            line-height: 16px;
-            color: #FFFFFF;
-            border: unset;
-            border-radius: 10%;
-            box-sizing: border-box;
-            font-weight: 400;
-            box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
-            text-align: center;
-
-
-      }
-
-      .btn:hover {
-            transition: 0.3s;
-            background-color: #FFFFFF;
-            color: #FF6F6F;
-            box-shadow: 0px 0px 2px 0.1px #e23333;
-      }
-
-      .btn:focus {
-            transition: 0.3s;
-            background-color: #FFFFFF;
-            color: #FF6F6F;
-            outline: 0;
-            border: 1px #FF6F6F;
-            box-shadow: 0px 4px 4px 0.04px #FF6F6F;
-      }
-
-      ul {
-            padding-inline-start: 0px;
-            box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
-                  -9px -9px 20px rgba(255, 255, 255, 0.753);
-
-      }
-
-      li {
-            padding: 10px 10px;
-            list-style: none;
-            margin: 20px auto;
-            box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.6),
-                  -9px -9px 20px rgba(255, 255, 255, 0.753);
-            ;
-            color: rgb(145, 146, 146);
-      }
-
-      li:hover {
-            box-shadow: inset 9px 9px 16px rgb(163, 177, 198, 0.6),
-                  inset -9px -9px 16px rgba(255, 255, 255, 0.5);
-            border: 10px 10px 2px rgb(241, 185, 99);
-      }
-
-
-      li a.action {
-            float: right;
-            cursor: pointer;
-      }
-
-      li a {
-            padding-left: 20px;
-            outline: 0;
-      }
-
-</style>
 
 <body>
-      <div class="container">
-            <div class="toDo-input">
-                  <input class="inputtext" id="inputtext" type="text" placeholder="Tambah List">
-                  <button class="btn" type="submit">Tambah</button>
-            </div>
-            <div class="hasiltodo">
-                  <ul id="toDo">
+    <div class="container">
+        <div class="frame">
+            <h3 class="title">Jadual Rebahan</h3>
+            <form id="form-todo" class="form">
+                <input type="text" id="input-todo">
+                <button class="btn3" id="btn-add">add</button>  <button class="sort-todo" id="btn-sort">sort </button>
+            </form>
+           
+            <ul id="todo-list">
+            </ul>
+        </div>
+    </div>
 
-                  </ul>
-            </div>
+    <script src="./index.js"></script>
 </body>
-
-
-
-<script>
-      const cacheKey = "URL"
-
-      let listNode;
-      let toDoList;
-      let getNumber;
-      let inputTaskElement = document.getElementById('inputtext');
-
-      let button = document.querySelector('button[type="submit"]');
-      const textNodeElement = text => {
-            text.length ? text : text = 'Templete'
-            let textNode = document.createElement('a');
-            textNode.className = "item";
-            textNode.appendChild(document.createTextNode(text));
-            textNode.setAttribute('contenteditable', "true")
-            return textNode
-      }
-
-      const editElement = () => {
-            if (event.target.getAttribute("status") == "active") {
-                  event.target.setAttribute("status", "inactive");
-                  event.target.parentElement.children[1].setAttribute('contenteditable', "true")
-                  event.target.parentElement.children[1].classList.remove('task-done')
-            } else {
-                  event.target.setAttribute("status", "active");
-                  event.target.parentElement.children[1].setAttribute('contenteditable', "false")
-                  event.target.parentElement.children[1].classList.add('task-done')
-            }
-      }
-
-      const inputNodeElement = () => {
-            let inputNode = document.createElement('input');
-            inputNode.className = 'checkboxClass';
-            inputNode.type = "checkbox";
-            inputNode.addEventListener('click', editElement)
-            return inputNode
-      }
-
-      const removeElement = () => {
-            toDo = document.getElementById('toDo');
-            let data = event.target.parentElement;
-            toDo.removeChild(data)
-            sessionStorage.setItem(cacheKey, toDo.innerHTML)
-      }
-
-      const deleteNodeElement = () => {
-            let deleteNode = document.createElement('a');
-            deleteNode.className = "action";
-            deleteNode.appendChild(document.createTextNode("!!!"))
-            deleteNode.addEventListener('click', removeElement)
-            return deleteNode
-      }
-
-      button.addEventListener('click', () => {
-            listNode = document.createElement('li');
-            toDoList = document.getElementById('toDo');
-            getNumber = toDoList.lastElementChild ? toDoList.lastElementChild.id : 0
-            listNode.id = parseInt(getNumber) + 1;
-            listNode.appendChild(inputNodeElement());
-            listNode.appendChild(textNodeElement(inputTaskElement.value));
-            listNode.appendChild(deleteNodeElement());
-            toDoList.append(listNode);
-            toDo = document.getElementById('toDo');
-            console.log(toDo)
-            sessionStorage.setItem(cacheKey, toDo.innerHTML)
-            inputTaskElement.value = '';
-      })
-
-
-      if (typeof (Storage) !== "undefined") {
-            if (sessionStorage.getItem(cacheKey) === "undefined") {
-                  sessionStorage.setItem(cacheKey, 0);
-            }
-
-            const button = document.querySelector("#button");
-            const count = document.querySelector("#count");
-            window.onload = function () {
-                  toDo.innerHTML = sessionStorage.getItem(cacheKey)
-                  let toDoAct = document.getElementById('toDo').children
-
-                  for (element of toDoAct) {
-                        element.children[2].addEventListener('click', removeElement)
-                        element.children[0].addEventListener('click', editElement)
-                  }
-
-            }
-      } else {
-            console.error("test")
-      }
-</script>
 
 </html>
