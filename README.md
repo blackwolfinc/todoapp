@@ -1,5 +1,3 @@
-# Create simple Todolist with OOP Javascripts
+#Create by bagas aji nugroho
 
-## Binar Academy, Glints FE Batch 7
-
-## Author : Jumakri Ridho Fauzi
+#Glints academy  Batch 7
