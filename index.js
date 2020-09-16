@@ -50,7 +50,7 @@ class todos {
     editTodo(i) {
         let todo = this.data;
         if (todo[i].isCompleted === true) {
-            alert(`todo has been completed!, todo ${todo[i].text} cannot be edited`);
+            alert(` ${todo[i].text} sabar lagi di edit`);
         } else {
             this.mode = "edit";
             BtnAdd.innerHTML = "edit";
@@ -73,12 +73,12 @@ class todos {
     completeTodo(i) {
         let todo = this.data;
         if (todo[i].isCompleted === false) {
-            if (confirm(`click okay if you've been completed todo ${todo[i].text} !`)) {
+            if (confirm(`mari rebahan klik ok  !`)) {
                 todo[i].isCompleted = true;
                 this.storageTodo('todo', todo, true);
             }
         } else {
-            alert(`todo ${todo[i].text} has been completed !`)
+            alert(`wes complete anjer !`)
         }
         this.showTodo();
     }
@@ -87,7 +87,7 @@ class todos {
     sortByCompleted() {
         let todo = this.data;
         if (todo == "") {
-            alert("you do not have any todo to sort !")
+            alert("Gak onok seng comlet njer")
         } else {
             todo.sort(function (a, b) {
                 return (a.isCompleted - b.isCompleted);
@@ -101,7 +101,7 @@ class todos {
     // delete todo
     deleteTodo(i) {
         let todo = this.data;
-        if (confirm(`Are you sure to delete todo ${todo[i].text}?`)) {
+        if (confirm(`mok hapus a ? ${todo[i].text}?`)) {
             todo.splice(i, 1);
             this.storageTodo('todo', todo, true);
         }
